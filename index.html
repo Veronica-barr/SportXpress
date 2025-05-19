@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportXpress - Tienda de artículos deportivos</title>
+    <meta name="description" content="SportXpress - Tienda de artículos deportivos con las mejores marcas y precios">
+    <meta name="keywords" content="deportes, equipamiento, ropa deportiva, accesorios">
+    
+    <!-- Preconexión para recursos externos -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://maps.app.goo.gl">
+    
+    <!-- Precarga de recursos críticos -->
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style">
+    
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Favicon moderno -->
+    <link rel="icon" type="image/webp" href="/images/favicon.webp">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.webp">
+    
+    <!-- Prefetch para páginas importantes -->
+    <link rel="prefetch" href="./compra/compra.html" as="document">
+</head>
+
+<body>
+    <!-- Enlace para saltar al contenido (accesibilidad) -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <header class="header" role="banner">
+        <div class="menu container">
+            <a href="#" class="logo" aria-label="SportXpress - Página de inicio">SportXpress</a>
+            
+            <!-- Menú móvil accesible -->
+            <input type="checkbox" id="menu" aria-label="Menú de navegación">
+            <label for="menu" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="navbar">
+                <img src="images/menu.png" class="menu-icono" alt="Abrir menú" width="24" height="24">
+            </label>
+            
+            <!-- Navegación principal -->
+            <nav class="navbar" id="navbar" role="navigation" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="index.html" aria-current="page">Inicio</a></li>
+                    <li><a href="#">Servicios</a></li>
+                    <li><a href="#lista-1">Productos</a></li>
+                    <li><a href="#Contactos">Contactos</a></li>
+                    <li><a href="./inicio_de_sesion/login.html">Iniciar sesión</a></li>
+                    <li><a href="./registrarse/public/regist.html">Registrarse</a></li>
+                </ul>
+            </nav>
+
+            <!-- Buscador accesible -->
+            <div class="search-container" role="search">
+                <form action="/buscar" method="get" class="search-form">
+                    <label for="search-input" class="visually-hidden">Buscar productos</label>
+                    <input type="search" 
+                           placeholder="Buscar productos..." 
+                           class="search-input" 
+                           id="search-input"
+                           name="q"
+                           aria-label="Buscar productos">
+                    <button type="submit" class="search-button" aria-label="Buscar">
+                        <i class="fas fa-search" aria-hidden="true"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Carrito de compras mejorado -->
+            <div class="submenu">
+                <ul>
+                    <li>
+                        <button id="toggle-carrito" aria-label="Carrito de compras" aria-expanded="false" aria-controls="carrito">
+                            <img src="images/car.svg" alt="Carrito" width="24" height="24">
+                            <span id="carrito-count" class="carrito-count" aria-live="polite">0</span>
+                        </button>
+                        <div id="carrito" role="region" aria-labelledby="carrito-heading">
+                            <h2 id="carrito-heading" class="visually-hidden">Carrito de compras</h2>
+                            <table id="lista-carrito" aria-describedby="carrito-desc">
+                                <caption id="carrito-desc" class="visually-hidden">Lista de productos en el carrito</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Descripción</th>
+                                        <th scope="col">Precio</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">Total</td>
+                                        <td id="carrito-total">$0.00</td>
+                                        <td></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <div class="carrito-acciones">
+                                <a href="#" id="vaciar-carrito" class="btn-2" role="button">Vaciar carrito</a>
+                                <a href="./compra/compra.html" id="comprar-carrito" class="btn-2" role="button">Comprar</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div> 
+    
+        <!-- Cabecera con imagen optimizada -->
+        <div class="header-content container">
+            <div class="header-img">
+                <img src="./images/hh1.png" 
+                     alt="Modelo usando ropa deportiva SportXpress" 
+                     width="600" 
+                     height="400"
+                     loading="eager">
+            </div>
+            <div class="header-txt">
+                <h1>Ofertas especiales</h1>
+                <p>Estrena las mejores prendas</p>
+                <a href="/product_pagina/product.html" class="btn">Ver productos</a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Sección de ofertas -->
+    <section class="ofert container" aria-labelledby="ofertas-heading">
+        <h2 id="ofertas-heading" class="visually-hidden">Ofertas especiales</h2>
+        
+        <div class="ofert-1">
+            <div class="ofert-img">
+                <img src="imagenes2.0/guante-fotor-bg-remover-2025040318345.png" 
+                     alt="Guantes de boxeo en oferta" 
+                     width="300" 
+                     height="300"
+                     loading="lazy">
+            </div>
+            <div class="ofert-txt">
+                <h3>Guantes Profesionales</h3>
+                <a href="#lista-1" class="btn-2">Ver oferta</a>
+            </div>
+        </div>
+
+        <div class="ofert-1">
+            <div class="ofert-img">
+                <img src="images/f2.png" 
+                     alt="Zapatillas deportivas en oferta" 
+                     width="300" 
+                     height="300"
+                     loading="lazy">
+            </div>
+            <div class="ofert-txt">
+                <h3>Zapatillas Running</h3>
+                <a href="#lista-1" class="btn-2">Ver oferta</a>
+            </div>
+        </div>
+
+        <div class="ofert-1">
+            <div class="ofert-img">
+                <img src="imagenes2.0/pesas-fotor-bg-remover-20250403183412.png" 
+                     alt="Juego de pesas en oferta" 
+                     width="300" 
+                     height="300"
+                     loading="lazy">
+            </div>
+            <div class="ofert-txt">
+                <h3>Set de Pesas</h3>
+                <a href="#lista-1" class="btn-2">Ver oferta</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos principales -->
+    <main class="products container" id="lista-1" role="main" id="main-content">
+        <h2>Productos destacados</h2>
+        <div class="product-content" role="list">
+            <!-- Producto 1 -->
+            <div class="product" role="listitem">
+                <div class="product-img-container">
+                    <a href="./compra/compra.html" class="product-link">
+                        <img src="imagenes2.0/soga-fotor-bg-remover-20250403183455.png" 
+                             alt="Cuerda para saltar Elisyum" 
+                             width="300" 
+                             height="300"
+                             loading="lazy"
+                             class="product-image">
+                    </a>
+                </div>
+                <div class="product-txt">
+                    <h3>Cuerda Elisyum</h3>
+                    <p>Calidad premium - Material duradero</p>
+                    <p class="precio" aria-label="Precio: $200">$200</p>
+                    <div class="product-actions">
+                        <a href="./compra/compra.html" class="btn-details btn-2" role="button">
+                            Ver detalles <span class="visually-hidden">de Cuerda Elisyum</span>
+                        </a>
+                        <button class="agregar-carrito btn-2" 
+                                data-id="1" 
+                                data-nombre="Cuerda Elisyum"
+                                data-precio="200"
+                                aria-label="Añadir Cuerda Elisyum al carrito">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product" role="listitem">
+                <div class="product-img-container">
+                    <a href="/detalle_product/producto-1.html" class="product-link">
+                        <img src="imagenes2.0/guante-fotor-bg-remover-2025040318345.png" 
+                             alt="Guantes Everlast Pro - Vista frontal" 
+                             width="300" 
+                             height="300"
+                             loading="lazy"
+                             class="product-image">
+                    </a>
+                </div>
+                <div class="product-txt">
+                    <h3>Guantes Everlast Pro</h3>
+                    <p>Calidad profesional - Protección óptima</p>
+                    <p class="precio" aria-label="Precio: $89.99">$89.99</p>
+                    <div class="product-actions">
+                        <a href="/detalle_product/producto-1.html" class="btn-details btn-2" role="button">
+                            Ver detalles <span class="visually-hidden">de Guantes Everlast Pro</span>
+                        </a>
+                        <button class="agregar-carrito btn-2" 
+                                data-id="2" 
+                                data-nombre="Guantes Everlast Pro"
+                                data-precio="89.99"
+                                aria-label="Añadir Guantes Everlast Pro al carrito">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product" role="listitem">
+                <div class="product-img-container">
+                    <a href="./compra/compra.html" class="product-link">
+                        <img src="imagenes2.0/diente-fotor-bg-remover-20250403183345.png" 
+                             alt="Protector bucal deportivo" 
+                             width="300" 
+                             height="300"
+                             loading="lazy"
+                             class="product-image">
+                    </a>
+                </div>
+                <div class="product-txt">
+                    <h3>Protector Bucal</h3>
+                    <p>Calidad premium - Ajuste personalizado</p>
+                    <p class="precio" aria-label="Precio: $200">$200</p>
+                    <div class="product-actions">
+                        <a href="./compra/compra.html" class="btn-details btn-2" role="button">
+                            Ver detalles <span class="visually-hidden">de Protector Bucal</span>
+                        </a>
+                        <button class="agregar-carrito btn-2" 
+                                data-id="3" 
+                                data-nombre="Protector Bucal"
+                                data-precio="200"
+                                aria-label="Añadir Protector Bucal al carrito">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="product" role="listitem">
+                <div class="product-img-container">
+                    <a href="./compra/compra.html" class="product-link">
+                        <img src="imagenes2.0/diente-fotor-bg-remover-20250403183345.png" 
+                             alt="Segundo protector bucal deportivo" 
+                             width="300" 
+                             height="300"
+                             loading="lazy"
+                             class="product-image">
+                    </a>
+                </div>
+                <div class="product-txt">
+                    <h3>Protector Bucal Elite</h3>
+                    <p>Calidad premium - Mayor protección</p>
+                    <p class="precio" aria-label="Precio: $200">$200</p>
+                    <div class="product-actions">
+                        <a href="./compra/compra.html" class="btn-details btn-2" role="button">
+                            Ver detalles <span class="visually-hidden">de Protector Bucal Elite</span>
+                        </a>
+                        <button class="agregar-carrito btn-2" 
+                                data-id="4" 
+                                data-nombre="Protector Bucal Elite"
+                                data-precio="200"
+                                aria-label="Añadir Protector Bucal Elite al carrito">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 5 -->
+            <div class="product" role="listitem">
+                <div class="product-img-container">
+                    <a href="./compra/compra.html" class="product-link">
+                        <img src="imagenes2.0/pesas-fotor-bg-remover-20250403183412.png" 
+                             alt="Juego de pesas ajustables" 
+                             width="300" 
+                             height="300"
+                             loading="lazy"
+                             class="product-image">
+                    </a>
+                </div>
+                <div class="product-txt">
+                    <h3>Pesas Ajustables</h3>
+                    <p>Calidad premium - Peso regulable</p>
+                    <p class="precio" aria-label="Precio: $200">$200</p>
+                    <div class="product-actions">
+                        <a href="./compra/compra.html" class="btn-details btn-2" role="button">
+                            Ver detalles <span class="visually-hidden">de Pesas Ajustables</span>
+                        </a>
+                        <button class="agregar-carrito btn-2" 
+                                data-id="5" 
+                                data-nombre="Pesas Ajustables"
+                                data-precio="200"
+                                aria-label="Añadir Pesas Ajustables al carrito">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 6 -->
+            <div class="product" role="listitem">
+                <div class="product-img-container">
+                    <a href="./compra/compra.html" class="product-link">
+                        <img src="images/6.png" 
+                             alt="Mancuernas de neopreno" 
+                             width="300" 
+                             height="300"
+                             loading="lazy"
+                             class="product-image">
+                    </a>
+                </div>
+                <div class="product-txt">
+                    <h3>Mancuernas Neopreno</h3>
+                    <p>Calidad premium - Antideslizantes</p>
+                    <p class="precio" aria-label="Precio: $200">$200</p>
+                    <div class="product-actions">
+                        <a href="./compra/compra.html" class="btn-details btn-2" role="button">
+                            Ver detalles <span class="visually-hidden">de Mancuernas Neopreno</span>
+                        </a>
+                        <button class="agregar-carrito btn-2" 
+                                data-id="6" 
+                                data-nombre="Mancuernas Neopreno"
+                                data-precio="200"
+                                aria-label="Añadir Mancuernas Neopreno al carrito">
+                            Agregar al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer mejorado -->
+    <footer class="footer" id="Contactos" role="contentinfo">
+        <div class="footer-container container">
+            <div class="footer-grid">
+                <!-- Información de contacto -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Información de contacto</h3>
+                    <address class="footer-list">
+                        <a href="https://maps.app.goo.gl/YYCiywFJounKrqiL8" class="footer-link" rel="noopener noreferrer" target="_blank">
+                            <i class="fas fa-map-marker-alt footer-icon" aria-hidden="true"></i> 
+                            <span>Calle Deportiva 123, Madrid</span>
+                        </a>
+                        <a href="tel:+34910123456" class="footer-link">
+                            <i class="fas fa-phone footer-icon" aria-hidden="true"></i> 
+                            <span>+34 910 123 456</span>
+                        </a>
+                        <a href="mailto:info@sportxpress.com" class="footer-link">
+                            <i class="fas fa-envelope footer-icon" aria-hidden="true"></i> 
+                            <span>info@sportxpress.com</span>
+                        </a>
+                        <p>
+                            <i class="fas fa-clock footer-icon" aria-hidden="true"></i> 
+                            <span>L-V 9:00-20:00</span>
+                        </p>
+                    </address>
+                </div>
+                
+                <!-- Ayuda -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Ayuda</h3>
+                    <ul class="footer-list">
+                        <li>
+                            <a href="./Preguntas-frecuente/Preguntas-frecuente.html" class="footer-link">
+                                <i class="fas fa-question-circle footer-icon" aria-hidden="true"></i> 
+                                Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fas fa-truck footer-icon" aria-hidden="true"></i> 
+                            Envíos y devoluciones
+                        </li>
+                        <li>
+                            <a href="./guia_de_talles/guiaTalles.html" class="footer-link">
+                                <i class="fas fa-ruler-combined footer-icon" aria-hidden="true"></i> 
+                                Guía de talles
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fas fa-credit-card footer-icon" aria-hidden="true"></i> 
+                            Métodos de pago
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Redes sociales y newsletter -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Síguenos</h3>
+                    <div class="social-links">
+                        <a href="https://instagram.com/sportxpress" class="social-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://facebook.com/sportxpress" class="social-link" aria-label="Facebook" rel="noopener noreferrer" target="_blank">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://twitter.com/sportxpress" class="social-link" aria-label="Twitter" rel="noopener noreferrer" target="_blank">
+                            <i class="fab fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://tiktok.com/@sportxpress" class="social-link" aria-label="TikTok" rel="noopener noreferrer" target="_blank">
+                            <i class="fab fa-tiktok" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Suscríbete a nuestro boletín</h4>
+                        <form class="newsletter-form" id="newsletter-form">
+                            <label for="newsletter-email" class="visually-hidden">Correo electrónico</label>
+                            <input type="email" 
+                                   id="newsletter-email" 
+                                   placeholder="Tu correo electrónico" 
+                                   required
+                                   aria-required="true">
+                            <button type="submit" class="btn-subscribe">Suscribir</button>
+                        </form>
+                        <p class="newsletter-disclaimer">Nos comprometemos a no compartir tu información.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; <span id="current-year">2023</span> SportXpress. Todos los derechos reservados.
+                </div>
+                <div class="legal-links">
+                    <a href="/politica-privacidad">Política de privacidad</a>
+                    <a href="/terminos">Términos y condiciones</a>
+                    <a href="/aviso-legal">Aviso legal</a>
+                    <a href="/cookies">Política de cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts al final del body -->
+    <script>
+        // Actualizar año del copyright
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Lazy loading para imágenes
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = [].slice.call(document.querySelectorAll('img[loading="lazy"]'));
+            
+            if ('IntersectionObserver' in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.src;
+                            lazyImage.classList.add('loaded');
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+    </script>
+    
+    <script src="/js/scrip.js" defer></script>
+    
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXX-Y');
+    </script>
+</body>
+</html>
+
