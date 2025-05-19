@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - SportXpress</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos principales consistentes con la página inicial */
+       
+
+        .checkout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .order-summary, .checkout-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            color: #111111;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .checkout-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #111111;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-item-img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 12px;
+        }
+
+        .order-item-details {
+            flex: 1;
+        }
+
+        .order-item-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            font-size: 15px;
+        }
+
+        .order-item-desc {
+            font-size: 13px;
+            color: #777;
+        }
+
+        .order-item-price {
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 2px solid #111111;
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus {
+            outline: none;
+            border-color: #111111;
+            box-shadow: 0 0 0 2px rgba(17, 17, 17, 0.1);
+        }
+
+        .btn-checkout {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background-color: #111111;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .btn-checkout:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .empty-cart-message {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .empty-cart-message p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .back-to-shop {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #111111;
+            color: #ffffff;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .back-to-shop:hover {
+            background-color: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .order-summary {
+                order: 2;
+            }
+            
+            .checkout-form {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .checkout-section {
+                padding: 30px 5% 60px;
+            }
+            
+            .checkout-title {
+                font-size: 24px;
+            }
+            
+            .order-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .order-item-price {
+                margin-top: 8px;
+                align-self: flex-end;
+            }
+            
+            .order-summary, .checkout-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Compra</h2>
+    </header>
+
+    <section class="checkout-section">
+        <div class="checkout-container container">
+            <div class="checkout-form">
+                <h2 class="checkout-title">Datos de envío</h2>
+                <form id="checkout-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" id="direccion" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" id="ciudad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="codigo-postal">Código postal</label>
+                        <input type="text" id="codigo-postal" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="metodo-pago">Método de pago</label>
+                        <select id="metodo-pago" required>
+                            <option value="">Seleccione un método</option>
+                            <option value="tarjeta">Tarjeta de crédito/débito</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="transferencia">Transferencia bancaria</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-checkout">Finalizar compra</button>
+                </form>
+            </div>
+
+            <div class="order-summary">
+                <h2 class="checkout-title">Resumen de tu pedido</h2>
+                <div id="order-items-container">
+                    <!-- Los productos del carrito se cargarán aquí mediante JavaScript -->
+                </div>
+                <div class="order-total">
+                    <span>Total:</span>
+                    <span id="order-total">$0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="Contactos">
+        <div class="footer-container container">
+            <div class="footer-grid">
+                <!-- Información de contacto -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Información de contacto</h3>
+                    <ul class="footer-list">
+                        <li>
+                            <a href="https://maps.app.goo.gl/YYCiywFJounKrqiL8" class="footer-link">
+                            <i class="fas fa-map-marker-alt footer-icon"></i> Calle Deportiva 123, Madrid
+                            </a>
+                        </li>
+                        <li><i class="fas fa-phone footer-icon"></i> +34 910 123 456</li>
+                        <li><i class="fas fa-envelope footer-icon"></i> info@sportxpress.com</li>
+                        <li><i class="fas fa-clock footer-icon"></i> L-V 9:00-20:00</li>
+                    </ul>
+                </div>
+                
+                <!-- Ayuda -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Ayuda</h3>
+                    <ul class="footer-list">
+                        <li>
+                            <a href="./Preguntas-frecuente/Preguntas-frecuente.html" class="footer-link">
+                                <i class="fas fa-question-circle footer-icon"></i> Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li><i class="fas fa-truck footer-icon"></i> Envíos y devoluciones</li>
+                        <li>
+                            <a href="./guia_de_talles/guiaTalles.html" class="footer-link">
+                                <i class="fas fa-ruler-combined footer-icon"></i> Guía de talles
+                            </a>
+                        </li>
+                        <li><i class="fas fa-credit-card footer-icon"></i> Métodos de pago</li>
+                    </ul>
+                </div>
+                
+                <!-- Redes sociales -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="newsletter">
+                        <h4>Suscríbete a nuestro boletín</h4>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Tu correo electrónico" required>
+                            <button type="submit" class="btn-subscribe">Suscribir</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2023 SportXpress. Todos los derechos reservados.
+                </div>
+                <div class="legal-links">
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Términos y condiciones</a>
+                    <a href="#">Aviso legal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar los productos del carrito desde localStorage
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const orderItemsContainer = document.getElementById('order-items-container');
+            const orderTotalElement = document.getElementById('order-total');
+            
+            if (carrito.length === 0) {
+                orderItemsContainer.innerHTML = `
+                    <div class="empty-cart-message">
+                        <p>No hay productos en tu carrito</p>
+                        <a href="index.html" class="back-to-shop">Volver a la tienda</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            let total = 0;
+            
+            carrito.forEach(item => {
+                // Extraer el precio numérico (eliminando el símbolo $)
+                const precioNumerico = parseFloat(item.precio.replace('$', ''));
+                total += precioNumerico;
+                
+                const itemElement = document.createElement('div');
+                itemElement.className = 'order-item';
+                itemElement.innerHTML = `
+                    <img src="${item.imagen}" alt="${item.titulo}" class="order-item-img">
+                    <div class="order-item-details">
+                        <h4 class="order-item-title">${item.titulo}</h4>
+                        <p class="order-item-desc">${item.descripcion}</p>
+                    </div>
+                    <span class="order-item-price">${item.precio}</span>
+                `;
+                orderItemsContainer.appendChild(itemElement);
+            });
+            
+            orderTotalElement.textContent = `$${total.toFixed(2)}`;
+            
+            // Manejar el envío del formulario
+            document.getElementById('checkout-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validar el formulario
+                const nombre = document.getElementById('nombre').value;
+                const email = document.getElementById('email').value;
+                const direccion = document.getElementById('direccion').value;
+                const metodoPago = document.getElementById('metodo-pago').value;
+                
+                if (!nombre || !email || !direccion || !metodoPago) {
+                    alert('Por favor complete todos los campos obligatorios');
+                    return;
+                }
+                
+                // Aquí normalmente enviarías los datos a un servidor
+                // Por ahora solo mostraremos una alerta y limpiaremos el carrito
+                alert('¡Compra realizada con éxito! Gracias por tu pedido.\n\nSe ha enviado un correo de confirmación a: ' + email);
+                
+                // Guardar datos de la compra (para posible historial)
+                const compra = {
+                    fecha: new Date().toISOString(),
+                    productos: carrito,
+                    total: total,
+                    cliente: {
+                        nombre: nombre,
+                        email: email,
+                        direccion: direccion
+                    }
+                };
+                
+                localStorage.setItem('ultima-compra', JSON.stringify(compra));
+                localStorage.removeItem('carrito');
+                
+                // Redirigir a la página de confirmación o inicio
+                window.location.href = 'index.html';
+            });
+            
+            // Hacer scroll al inicio del formulario para que sea visible inmediatamente
+            window.scrollTo(0, 0);
+        });
+    </script>
+</body>
+</html>
