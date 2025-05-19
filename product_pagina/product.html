@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - SportXpress</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="./product.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="index.html">SPORTXPRESS</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar productos, marcas y más...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="user-menu">
+                <a href="#"><i class="fas fa-user"></i> Mi cuenta</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Carrito</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Filtros y categorías -->
+    <div class="filters-container">
+        <div class="category-filters">
+            <span>Categorías:</span>
+            <button class="filter-btn active">Todos</button>
+            <button class="filter-btn">Fútbol</button>
+            <button class="filter-btn">Running</button>
+            <button class="filter-btn">Fitness</button>
+            <button class="filter-btn">Natación</button>
+            <button class="filter-btn">Ciclismo</button>
+        </div>
+        <div class="sort-options">
+            <span>Ordenar por:</span>
+            <select>
+                <option>Más relevantes</option>
+                <option>Menor precio</option>
+                <option>Mayor precio</option>
+                <option>Mejores valorados</option>
+                <option>Novedades</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Contenedor principal de productos -->
+    <main class="products-container">
+        <!-- Los productos se cargarán dinámicamente aquí -->
+    </main>
+
+    <!-- Paginación -->
+    <div class="pagination">
+        <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <button class="page-btn">4</button>
+        <button class="page-btn">5</button>
+        <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Atención al cliente</h3>
+                <ul>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Guía de talles</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 SportXpress. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <scrip src="./product.js" ></scrip>
+    
+</body>
+</html>
