@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Frecuentes - SportXpress</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* FAQ Styles */
+        .faq {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 50px;
+            color: #111111;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question h3 {
+            font-size: 20px;
+            color: #111111;
+            font-family: 'Oswald', sans-serif;
+            margin: 0;
+        }
+
+        .faq-question:hover {
+            background-color: #e0e0e0;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            background-color: #ffffff;
+        }
+
+        .faq-answer p {
+            padding: 20px 0;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Contact Help Section */
+        .contact-help {
+            padding: 60px 0;
+            background-color: #f5f5f5;
+            margin-bottom: 60px;
+        }
+
+        .contact-help h2 {
+            font-size: 35px;
+            color: #111111;
+            font-family: 'Oswald', sans-serif;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-help p {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-method {
+            text-align: center;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-method i {
+            font-size: 40px;
+            color: #111111;
+            margin-bottom: 20px;
+        }
+
+        .contact-method h3 {
+            font-size: 22px;
+            color: #111111;
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 15px;
+        }
+
+        .contact-method p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 35px;
+                margin-bottom: 30px;
+            }
+            
+            .faq-question h3 {
+                font-size: 18px;
+            }
+            
+            .contact-help {
+                padding: 40px 20px;
+            }
+            
+            .contact-help h2 {
+                font-size: 28px;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="menu">
+        <div class="container">
+            <div class="logo">SportXpress</div>
+            <input type="checkbox" id="menu">
+            <label for="menu">
+                <img src="../images/menu-icon.png" class="menu-icono" alt="Menú">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../index.html#lista-1">Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="faq.html" class="active">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="submenu">
+                <img src="../images/car.svg" id="img-carrito" alt="Carrito de compras">
+                <div id="carrito">
+                    <table id="lista-carrito">
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="header">
+        <div class="header-content container">
+            <div class="header-txt">
+                <h1>Preguntas Frecuentes</h1>
+                <p>Encuentra respuestas a las dudas más comunes sobre nuestros productos y servicios</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq container">
+        <div class="faq-content">
+            <h2 class="section-title">Preguntas Comunes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Cuáles son los métodos de pago disponibles?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Aceptamos todas las tarjetas de crédito y débito principales (Visa, MasterCard, American Express), así como PayPal y transferencias bancarias. También ofrecemos la opción de pago contra reembolso para pedidos dentro de nuestro país.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Cuánto tiempo tarda en llegar mi pedido?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>El tiempo de entrega varía según tu ubicación y el método de envío seleccionado. Para envíos estándar dentro del país, el tiempo estimado es de 3-5 días hábiles. Para envíos internacionales, puede tardar entre 7-14 días hábiles. Los pedidos express llegan en 1-2 días hábiles.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Puedo devolver un producto si no estoy satisfecho?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Sí, aceptamos devoluciones dentro de los 30 días posteriores a la recepción del pedido. Los productos deben estar en su estado original, sin usar y con todas las etiquetas. Ponte en contacto con nuestro servicio al cliente para iniciar el proceso de devolución.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Cómo puedo realizar un seguimiento de mi pedido?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Una vez que tu pedido haya sido enviado, recibirás un correo electrónico con un número de seguimiento y un enlace para rastrear tu paquete. También puedes iniciar sesión en tu cuenta en nuestro sitio web para ver el estado actualizado de tu pedido.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Ofrecen garantía en sus productos?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Todos nuestros productos tienen una garantía del fabricante que varía según el artículo. La mayoría de los productos deportivos tienen una garantía de 1 año contra defectos de fabricación. Consulta la documentación específica del producto para más detalles.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Cómo puedo cambiar o cancelar mi pedido?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Puedes cambiar o cancelar tu pedido siempre que no haya sido enviado. Ponte en contacto con nuestro servicio al cliente lo antes posible llamando al +1 234 567 890 o enviando un email a soporte@sportxpress.com con tu número de pedido.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Tienen tiendas físicas?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Actualmente operamos exclusivamente en línea, lo que nos permite ofrecer precios más competitivos. Sin embargo, puedes recoger tus pedidos en nuestro centro de distribución con cita previa.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>¿Cómo sé qué talla de ropa deportiva debo comprar?</h3>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Cada producto en nuestra web incluye una guía de tallas detallada. Te recomendamos medirte y comparar tus medidas con nuestra tabla. Si necesitas ayuda adicional, nuestro equipo de atención al cliente puede asesorarte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-help container">
+        <div class="contact-help-content">
+            <h2>¿No encontraste tu respuesta?</h2>
+            <p>Nuestro equipo de atención al cliente está disponible para ayudarte con cualquier pregunta adicional que puedas tener.</p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <i class="fas fa-phone"></i>
+                    <h3>Llámanos</h3>
+                    <p>+1 234 567 890</p>
+                    <p>Lunes a Viernes: 9am - 6pm</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Envíanos un email</h3>
+                    <p>soporte@sportxpress.com</p>
+                    <p>Respuesta en menos de 24h</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-comments"></i>
+                    <h3>Chat en vivo</h3>
+                    <p>Disponible en horario comercial</p>
+                    <a href="#" class="btn-1">Iniciar chat</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3 class="footer-title">SportXpress</h3>
+                    <p>Tu tienda de confianza para equipamiento deportivo de alta calidad a precios competitivos.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Enlaces rápidos</h3>
+                    <ul class="footer-list">
+                        <li><a href="../index.html"><i class="fas fa-chevron-right footer-icon"></i> Inicio</a></li>
+                        <li><a href="../index.html#lista-1"><i class="fas fa-chevron-right footer-icon"></i> Productos</a></li>
+                        <li><a href="contacto.html"><i class="fas fa-chevron-right footer-icon"></i> Contacto</a></li>
+                        <li><a href="faq.html"><i class="fas fa-chevron-right footer-icon"></i> FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Servicio al cliente</h3>
+                    <ul class="footer-list">
+                        <li><a href="#"><i class="fas fa-chevron-right footer-icon"></i> Términos y condiciones</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right footer-icon"></i> Política de privacidad</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right footer-icon"></i> Política de devoluciones</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right footer-icon"></i> Métodos de pago</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right footer-icon"></i> Guía de tallas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p>Suscríbete para recibir ofertas exclusivas y novedades.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit" class="btn-subscribe">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2023 SportXpress. Todos los derechos reservados.</p>
+                <div class="legal-links">
+                    <a href="#">Términos de uso</a>
+                    <a href="#">Política de privacidad</a>
+                    <a href="#">Aviso legal</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript para el funcionamiento del acordeón de preguntas
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+                    
+                    // Cerrar otras respuestas abiertas
+                    document.querySelectorAll('.faq-answer').forEach(item => {
+                        if (item !== answer && item.style.maxHeight) {
+                            item.style.maxHeight = null;
+                            item.previousElementSibling.querySelector('i').classList.remove('fa-chevron-up');
+                            item.previousElementSibling.querySelector('i').classList.add('fa-chevron-down');
+                        }
+                    });
+                    
+                    // Alternar la respuesta actual
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

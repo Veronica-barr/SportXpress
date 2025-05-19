@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Iniciar Sesión</title>
+</head>
+<body>
+    
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="apellido" placeholder="Apellido" required>
+            <input type="email" id="email" placeholder="Correo Electrónico" required>
+            <label for="password">Contraseña:</label>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <span id="togglePassword" class="eye-icon">👁</span>
+            </div><br><br>
+            <select id="rol" required>
+                <option value="">Seleccione un rol</option>
+                <option value="cliente">Cliente</option>
+                <option value="admin">Administrador</option>
+                <option value="vendedor">Vendedor</option>
+            </select>
+            <p class="error" id="errorMsg"></p>
+            <button type="submit">Ingresar</button>
+        </form>
+        <p class="register-link">¿No tienes una cuenta? <a href="../registrarse/regist.html">Regístrate aquí</a></p>
+    </div>
+
+    <script src="login.js"></script>
+
+</body>
+</html>
