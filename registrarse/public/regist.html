@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Usuario</title>
+  <link rel="stylesheet" href="./regist.css">
+</head>
+<body>
+  <div class="register-container">
+    <h2>Crear Cuenta</h2>
+    <form id="registerForm">
+      <input type="text" id="nombre" placeholder="Nombre" required>
+      <input type="text" id="apellido" placeholder="Apellido" required>
+      <input type="email" id="email" placeholder="Correo Electrónico" required>
+
+      <div class="password-container">
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <span class="eye-icon">👁</span>
+      </div>
+
+      <div class="password-container">
+        <input type="password" id="confirmPassword" placeholder="Confirmar Contraseña" required>
+        <span class="eye-icon">👁</span>
+      </div>
+
+      <select id="rol" required>
+        <option value="">Seleccione un rol</option>
+        <option value="cliente">Cliente</option>
+        <option value="admin">Administrador</option>
+        <option value="vendedor">Vendedor</option>
+      </select>
+
+      <div id="errorMsg" class="error"></div>
+      <div id="verificationStatus"></div>
+      <button type="submit">Registrarse</button>
+    </form>
+    <p class="login-link">¿Ya tienes cuenta? <a href="#">Inicia sesión</a></p>
+  </div>
+  <script src="./regist.js"></script>
+</body>
+</html>
+
+
+<!-- poner la pagina en algun lado para crewr la url de la paguina -->
